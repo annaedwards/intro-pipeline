@@ -16,6 +16,17 @@ pipeline {
         echo 'Continuing with deployment'
       }
     }
+    stage('Deploy Timeout') {
+      options {
+        timeout(time: 1, unit: 'MINUTES')
+      }
+      input {
+        message 'Should we continue?'
+      }
+      steps {
+        echo 'Continuing with deployment'
+      }
+    }
   }
   environment {
     MY_NAME = 'Anna & Carissa'
